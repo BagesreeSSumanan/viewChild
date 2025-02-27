@@ -1,0 +1,9 @@
+<div class = "container">
+    <div class="containerinput">
+        <input type="text" class="form-control" placeholder="Enter the colour" #inputcolor>
+        <button class="btn btn-primary" (click)="changecolor()" >change</button>
+    </div>
+    <div class="containerinput">
+    <message [currentcolor]="colorselected"></message>
+    </div>
+</div>
