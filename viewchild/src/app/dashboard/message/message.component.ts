@@ -7,5 +7,5 @@ import { Component, Input } from '@angular/core';
   styleUrl: './message.component.css'
 })
 export class MessageComponent {
-  @Input() currentcolor: string = ''; 
+  currentColor: string = "blue";
 }

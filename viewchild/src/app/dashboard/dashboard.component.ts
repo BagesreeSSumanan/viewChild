@@ -1,4 +1,5 @@
-import { Component, ViewChild ,ElementRef} from '@angular/core';
+import { Component, ViewChild ,ElementRef, ViewChildren, QueryList} from '@angular/core';
+import { MessageComponent } from './message/message.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -9,7 +10,13 @@ import { Component, ViewChild ,ElementRef} from '@angular/core';
 export class DashboardComponent {
   colorselected:string="";
   @ViewChild('inputcolor') selectedcolor!: ElementRef;
-  changecolor(){
-    this.colorselected = this.selectedcolor.nativeElement.value
+  @ViewChildren(MessageComponent) messageComponents!: QueryList<MessageComponent>; 
+  changecolor() {
+    this.colorselected = this.selectedcolor.nativeElement.value;
+    console.log("Selected Color:", this.colorselected);
+    this.messageComponents.forEach((child) => {
+      child.currentColor = this.colorselected; 
+      console.log(`Updated MessageComponent with color:`, child.currentColor);
+    });
   }
 }
